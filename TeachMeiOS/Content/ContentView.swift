@@ -52,7 +52,11 @@ struct ContentView: View {
         .foregroundColor(.black)
         .background(Color.mint)
         .sheet(item: $selectedComand) { command in
-            DetailView(image: command.image, title: command.name, text: command.text)
+            DetailView(
+                image: command.image,
+                title: command.name,
+                text: command.text
+            )
         }
     }
     

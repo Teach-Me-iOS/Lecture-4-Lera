@@ -10,4 +10,6 @@ import SwiftUI
 
 struct ContentViewModel {
     let commands = ContentModel.Command.allCases
+
+    var favorites = [ContentModel.Command]()
 }

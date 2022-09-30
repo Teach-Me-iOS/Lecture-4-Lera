@@ -78,8 +78,8 @@
 			children = (
 				0CE9DB1428DF31DE00B2204B /* ContentModel.swift */,
 				0CE9DB0828DDFD1200B2204B /* ContentView.swift */,
-				CFC142CF28E611F9001162F0 /* DetailView.swift */,
 				0CE9DB1728DF32A900B2204B /* ContentViewModel.swift */,
+				CFC142CF28E611F9001162F0 /* DetailView.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";

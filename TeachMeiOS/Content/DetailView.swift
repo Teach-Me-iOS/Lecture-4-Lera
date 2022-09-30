@@ -11,6 +11,8 @@ struct DetailView: View {
     let image: Image
     let title: String
     let text: String
+
+    @State var isFavorite: Bool = false
     
     var body: some View {
         ScrollView {
@@ -24,10 +26,9 @@ struct DetailView: View {
                         .font(.title)
 
                     Button {
-
+                        isFavorite.toggle()
                     } label: {
-                        Image(systemName: "star")
-                            .foregroundColor(.mint)
+                        isFavorite ? Image(systemName: "star.fill").foregroundColor(.mint) : Image(systemName: "star").foregroundColor(.mint)
                     }
 
                 }
@@ -47,6 +48,10 @@ struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         let command = ContentModel.Command.down
 
-        DetailView(image: command.image, title: command.name, text: command.text)
+        DetailView(
+            image: command.image,
+            title: command.name,
+            text: command.text
+        )
     }
 }
