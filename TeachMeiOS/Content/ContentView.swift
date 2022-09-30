@@ -29,8 +29,9 @@ struct ContentView: View {
                             ZStack {
                                 command.image
                                     .resizable()
-                                    .frame(height: cellHeight)
+                                    .aspectRatio(contentMode: .fill)
                                     .cornerRadius(cellCornerRadius)
+                                
                                 
                                 Text(command.name)
                                     .font(.largeTitle)
@@ -45,16 +46,14 @@ struct ContentView: View {
                         }
                     )
                     .padding()
-                    
                 }
             }
         }
         .foregroundColor(.black)
         .background(Color.mint)
         .sheet(item: $selectedComand) { command in
-            DetailView(image: command.image, title: command.name)
+            DetailView(image: command.image, title: command.name, text: command.text)
         }
-        
     }
     
     
