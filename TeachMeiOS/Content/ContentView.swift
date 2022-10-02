@@ -32,6 +32,7 @@ struct ContentView: View {
                                     .frame(height: cellHeight)
                                     .cornerRadius(cellCornerRadius)
                                 
+                                
                                 Text(command.name)
                                     .font(.largeTitle)
                                     .fontWeight(.medium)
@@ -52,15 +53,13 @@ struct ContentView: View {
         .foregroundColor(.black)
         .background(Color.mint)
         .sheet(item: $selectedComand) { command in
-            DetailView(image: command.image, title: command.name)
+            DetailView(image: command.image, title: command.name, text: command.text)
         }
-        
     }
-    
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
