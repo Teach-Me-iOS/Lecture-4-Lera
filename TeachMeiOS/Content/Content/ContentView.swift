@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    var viewModel = ContentViewModel()
+    @ObservedObject var viewModel = ContentViewModel()
     
     private let cellHeight: CGFloat = 300
     private let cellCornerRadius: CGFloat = 20
@@ -32,16 +32,17 @@ struct ContentView: View {
                                     .aspectRatio(contentMode: .fill)
                                     .cornerRadius(cellCornerRadius)
                                 
-                                
-                                Text(command.name)
-                                    .font(.largeTitle)
-                                    .fontWeight(.medium)
-                                    .padding(9)
-                                    .background(.white.opacity(opacity))
-                                    .cornerRadius(50)
-                                    .frame(maxHeight: .infinity, alignment: .bottom)
-                                    .frame(maxWidth: .infinity, alignment: .trailing)
-                                    .padding()
+                                HStack {
+                                    Text(command.name)
+                                        .font(.largeTitle)
+                                        .fontWeight(.medium)
+                                        .padding(9)
+                                        .background(.white.opacity(opacity))
+                                        .cornerRadius(cellCornerRadius)
+                                        .frame(maxHeight: .infinity, alignment: .bottom)
+                                        .frame(maxWidth: .infinity, alignment: .trailing)
+                                        .padding()
+                                }
                             }
                         }
                     )
@@ -50,12 +51,20 @@ struct ContentView: View {
             }
         }
         .foregroundColor(.black)
-        .background(Color.mint)
+        .background(.mint)
         .sheet(item: $selectedComand) { command in
             DetailView(
                 image: command.image,
                 title: command.name,
-                text: command.text
+                text: command.text,
+                isFavorite: viewModel.isCommandFavorite(command),
+                onFavoritesTapped: {
+                    if viewModel.isCommandFavorite(command) {
+                        viewModel.removeFavorite(command)
+                    } else {
+                        viewModel.addFavorite(command)
+                    }
+                }
             )
         }
     }

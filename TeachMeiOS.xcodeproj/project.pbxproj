@@ -38,6 +38,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C731CD328E9AB6B0093E2B1 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				0CE9DB1428DF31DE00B2204B /* ContentModel.swift */,
+				0CE9DB0828DDFD1200B2204B /* ContentView.swift */,
+				0CE9DB1728DF32A900B2204B /* ContentViewModel.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		0C731CD428E9AB720093E2B1 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				CFC142CF28E611F9001162F0 /* DetailView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		0CE9DAFA28DDFD1200B2204B = {
 			isa = PBXGroup;
 			children = (
@@ -76,10 +94,8 @@
 		0CE9DB1628DF328F00B2204B /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				0CE9DB1428DF31DE00B2204B /* ContentModel.swift */,
-				0CE9DB0828DDFD1200B2204B /* ContentView.swift */,
-				0CE9DB1728DF32A900B2204B /* ContentViewModel.swift */,
-				CFC142CF28E611F9001162F0 /* DetailView.swift */,
+				0C731CD328E9AB6B0093E2B1 /* Content */,
+				0C731CD428E9AB720093E2B1 /* Detail */,
 			);
 			path = Content;
 			sourceTree = "<group>";

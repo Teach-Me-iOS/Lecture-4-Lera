@@ -11,9 +11,9 @@ struct DetailView: View {
     let image: Image
     let title: String
     let text: String
+    let isFavorite: Bool
+    var onFavoritesTapped: () -> Void
 
-    @State var isFavorite: Bool = false
-    
     var body: some View {
         ScrollView {
             VStack(spacing: 30) {
@@ -25,12 +25,12 @@ struct DetailView: View {
                     Text(title)
                         .font(.title)
 
-                    Button {
-                        isFavorite.toggle()
-                    } label: {
-                        isFavorite ? Image(systemName: "star.fill").foregroundColor(.mint) : Image(systemName: "star").foregroundColor(.mint)
-                    }
-
+                    Button(
+                        action: onFavoritesTapped,
+                        label: {
+                            isFavorite ? Image(systemName: "star.fill").foregroundColor(.mint) : Image(systemName: "star").foregroundColor(.mint)
+                        }
+                    )
                 }
 
                 Text(text)
@@ -51,7 +51,9 @@ struct DetailView_Previews: PreviewProvider {
         DetailView(
             image: command.image,
             title: command.name,
-            text: command.text
+            text: command.text,
+            isFavorite: false,
+            onFavoritesTapped: { }
         )
     }
 }

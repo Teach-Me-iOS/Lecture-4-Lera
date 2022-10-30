@@ -36,10 +36,6 @@ struct ContentModel {
             Image(name.lowercased())
         }
 
-        var isFavorite: Bool {
-            true
-        }
-
         var text: String {
             """
         Benefits of Teaching Your Dog to Sit
